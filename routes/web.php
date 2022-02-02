@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebController;
 
 /* Auth::routes([
 	'register' => false,
@@ -12,6 +13,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+/**
+ * Rutas por login
+ */
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', 'WebController@index')->name('dashboard');
+
+    //Para Administrar los Productos
+    Route::resource('products', 'ProductsController')->names([
+        'index' => 'products',                 
+        'store' => 'saveProducts',             
+        'edit' => 'editProducts',              
+        'update' => 'updateProducts',          
+        'destroy' => 'destroyProducts',        
+    ]);
+
+    //Para Administrar los plazos de pago
+    Route::resource('deadline2pay', 'Deadlines2PayController')->names([
+        'index' => 'deadline2pay',                 
+        'store' => 'saveDeadline2pay',             
+        'edit' => 'editDeadline2pay',              
+        'update' => 'updatDdeadline2pay',          
+        'destroy' => 'destryDdeadline2pay',        
+    ]);
+
+
+});

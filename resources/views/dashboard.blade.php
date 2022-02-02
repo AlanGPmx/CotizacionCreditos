@@ -5,5 +5,13 @@
         </h2>
     </x-slot>
 
-    <x-jet-welcome />
+    <div class="row">
+        <div class="col-6">
+            <h2>Uno</h2>
+        </div>
+        <div class="col-6">
+            <h2>Dos</h2>
+        </div>
+    </div>
+    
 </x-app-layout>
