@@ -22,5 +22,19 @@ class Users extends Seeder
             'password' => Hash::make('qazwsxedc'),
             'email_verified_at' => now(),
         ])->assignRole('admin');
+
+        User::create([ // Vendedor
+            'name' => Str::title('Vendedor Precargado'),
+            'email' => Str::lower('vendedor@elektra.com'),
+            'password' => Hash::make('qazwsxedc'),
+            'email_verified_at' => now(),
+        ])->assignRole('vendedor');
+
+        User::create([ // Usuario
+            'name' => Str::title('Usuario'),
+            'email' => Str::lower('usuario@gmail.com'),
+            'password' => Hash::make('qazwsxedc'),
+            'email_verified_at' => now(),
+        ])->assignRole('usuario');
     }
 }
