@@ -3,10 +3,10 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes([
+/* Auth::routes([
 	'register' => false,
 	'verify' => false,
-]);
+]); */
 
 Route::get('/', function () {
     return view('welcome');
