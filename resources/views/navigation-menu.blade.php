@@ -2,7 +2,7 @@
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand me-4" href="/">
-            <x-jet-application-mark width="36" />
+            <img src="https://elektra.vtexassets.com/assets/vtex/assets-builder/elektra.store-theme/0.1.369/icn-logo-elektra___be2d09c389ec7e53c29f15cc1c480853.svg" alt="Elektra">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -17,6 +17,10 @@
 
                 <x-jet-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
                     {{ __('Products') }}
+                </x-jet-nav-link>
+
+                <x-jet-nav-link href="{{ route('categories') }}" :active="request()->routeIs('categories')">
+                    {{ __('Categories') }}
                 </x-jet-nav-link>
 
                 <x-jet-nav-link href="{{ route('deadline2pay') }}" :active="request()->routeIs('deadline2pay')">
