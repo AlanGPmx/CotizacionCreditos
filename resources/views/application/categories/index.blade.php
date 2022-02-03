@@ -28,8 +28,8 @@
                 <thead>
                     <tr>
                         <th width="70%">Nombre</th>
-                        <th width="15%" class="text-center">Estado</th>
-                        <th width="15%" class="text-center">Acciones</th>
+                        <th width="15%">Estado</th>
+                        <th width="15%">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
