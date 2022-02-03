@@ -48,6 +48,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         'update' => 'updateDeadline2pay',          
         'destroy' => 'destroyDeadline2pay',        
     ]);
-
+    Route::post('update-status-deadline2pay', 'Deadlines2PayController@changeStatus')->name('updateStatusDeadline2Pay');
 
 });
