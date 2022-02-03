@@ -21,20 +21,29 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     //Para Administrar los Productos
     Route::resource('products', 'ProductsController')->names([
-        'index' => 'products',                 
-        'store' => 'saveProduct',             
-        'edit' => 'editProduct',              
+        'index' => 'products',    
+        'store' => 'saveProduct',
+        'edit' => 'editProduct', 
         'update' => 'updateProduct',          
         'destroy' => 'destroyProduct',        
     ]);
 
+    //Para Administrar las categorias
+    Route::resource('categories', 'CategoriesController')->names([
+        'index' => 'categories',    
+        'store' => 'saveCategory',
+        'edit' => 'editCategory', 
+        'update' => 'updateCategory',          
+        'destroy' => 'destroyCategory',        
+    ]);
+
     //Para Administrar los plazos de pago
     Route::resource('deadline2pay', 'Deadlines2PayController')->names([
-        'index' => 'deadline2pay',                 
-        'store' => 'saveDeadline2pay',             
-        'edit' => 'editDeadline2pay',              
-        'update' => 'updatDdeadline2pay',          
-        'destroy' => 'destryDdeadline2pay',        
+        'index' => 'deadline2pay',    
+        'store' => 'saveDeadline2pay',
+        'edit' => 'editDeadline2pay', 
+        'update' => 'updateDeadline2pay',          
+        'destroy' => 'destroyDeadline2pay',        
     ]);
 
 
