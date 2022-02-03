@@ -9,7 +9,7 @@
         <div class="col-12 mb-1">
             <form action="{{ route('dashboard') }}" method="get">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control form-control-lg" id="q" name="q" placeholder="Buscar por el nombre del producto o su código SKU..." @if (Request::get('q')) value="{{ Request::get('q') }}" @endif>
+                    <input type="text" minlength="1" pattern=".{1,}" required class="form-control form-control-lg" id="q" name="q" placeholder="Buscar por el nombre del producto o su código SKU..." @if (Request::get('q')) value="{{ Request::get('q') }}" @endif>
                     <button class="btn btn-outline-warning" type="submit"><i class="fa fa-search"></i> Buscar</button>
                 </div>
             </form>
