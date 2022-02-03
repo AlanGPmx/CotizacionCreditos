@@ -22,10 +22,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     //Para Administrar los Productos
     Route::resource('products', 'ProductsController')->names([
         'index' => 'products',                 
-        'store' => 'saveProducts',             
-        'edit' => 'editProducts',              
-        'update' => 'updateProducts',          
-        'destroy' => 'destroyProducts',        
+        'store' => 'saveProduct',             
+        'edit' => 'editProduct',              
+        'update' => 'updateProduct',          
+        'destroy' => 'destroyProduct',        
     ]);
 
     //Para Administrar los plazos de pago
