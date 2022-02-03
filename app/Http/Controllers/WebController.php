@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Web;
+use App\Models\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WebController extends Controller
 {
@@ -12,9 +14,15 @@ class WebController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard');
+        if( $request->has('q') ){
+            $results = Products::where('sku', $request->q)->orWhere(DB::raw('lower(name)'), 'like', '%' .strtolower($request->q). '%')->get();
+            return view('dashboard')->with('results', $results);
+        }else{
+            return view('dashboard');
+        }
+        
     }
 
     /**

@@ -17,7 +17,7 @@ Route::get('/', function () {
  * Rutas por login
  */
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/dashboard', 'WebController@index')->name('dashboard');
+    Route::get('/dashboard/{q?}', 'WebController@index')->name('dashboard');
 
     //Para Administrar los Productos
     Route::resource('products', 'ProductsController')->names([
