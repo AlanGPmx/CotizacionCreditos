@@ -1,5 +1,5 @@
-<!-- #modal-AgregarCarousel -->
-<div class="modal fade" id="modal-AgregarCarousel">
+<!-- #modal-AgregarProducto -->
+<div class="modal fade" id="modal-AgregarProducto">
 	<div class="modal-dialog modal-lg modal-dialog-centered">
 		<div class="modal-content">
 			<form action="{{ route('saveProduct') }}" method="POST" enctype="multipart/form-data">
@@ -14,9 +14,9 @@
 							<div class="row">
 								<div class="col-md-12 mb-3">
 									<div class="form-group">
-										<label for="title">Título</label>
-										<input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" placeholder="Título del Anuncio" autocomplete="title" autofocus>
-										@error('title')
+										<label for="name">Nombre del Producto</label>
+										<input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Título del Anuncio" autocomplete="name" autofocus>
+										@error('name')
 										<span class="invalid-feedback" role="alert">
 											<strong>{{ $message }}</strong>
 										</span>
@@ -89,7 +89,7 @@
 								<div class="col-md-12 mb-3">
 									<div class="form-group row">
 										<span class="col-12">
-											<label for="image"><span class="text-danger">*</span>Imagen <span class="text-muted">(1200x600 píxeles)</span></label>
+											<label for="image"><span class="text-danger">*</span>Imagen <span class="text-muted">(400x400 píxeles)</span></label>
 											<input class="form-control @error('image') is-invalid @enderror" type="file" accept="image/png, image/svg, image/jpg, image/jpeg" name="image" id="image" autocomplete="image">
 										</span>
 										@error('image')
@@ -99,14 +99,11 @@
 										@enderror
 										<span class="col-12 mt-3">
 											<label>Previsualización</label>
-											<img src="{{ url('/images/preview.jpg') }}" id="preview_image_carousel" alt="" width="100%" height="auto" style="pointer-events: none" ondragstart="return false;" draggable="false">
+											<img src="{{ url('/images/preview.jpg') }}" id="preview_image_product" alt="" width="100%" height="auto" style="pointer-events: none" ondragstart="return false;" draggable="false">
 										</span>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="col-12 text-center">
-							Si subes un nuevo elemento con un orden que actualmente muestra algún registro, el nuevo elemento sustituirá al viejo.
 						</div>
 					</div>
 				</div>
