@@ -96,12 +96,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        //dd($id);
         $itemCarousel = Categories::find($id);
         $wasDeleted = $itemCarousel->delete();
 
-        return ($wasDeleted) ?
-            redirect()->route('categories')->with('message', 'Categoría eliminada')->with('type', 'alert-success')->with('icon', 'fa-check-circle'):
-            redirect()->route('categories')->with('message', 'La categoría no se ha podido eliminar')->with('type', 'alert-danger')->with('icon', 'fa-times-circle');
+        return ($wasDeleted) ? 1:0;
     }
 }
