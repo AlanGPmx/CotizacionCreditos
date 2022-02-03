@@ -36,7 +36,12 @@
                     @foreach ($categories as $category)
                     <tr>
                         <td width="70%"> {{ $category->name }} </td>
-                        <td width="15%" class="text-center"> {!! ($category->active) ? '<i class="fa fa-check text-success"></i>':'<i class="fa fa-times text-danger"></i>' !!} </td>
+                        <td width="15%" class="text-center">
+                            <div class="form-check form-switch form-switch-md m-2">
+                                <input class="form-check-input" type="checkbox" name="statusItem" data-id="{{ $category->id }}" autocomplete="statusItem" @if($category->active) checked @endif>
+                                <label class="form-check-label" for="active"></label>
+                            </div>
+                        </td>
                         <td width="15%">
                             <a class="btn btn-sm btn-outline-secondary" href="{{ route('editCategory', $category->id) }}"><i class="fa fa-pencil-alt"></i></a>
                             <button class="btn btn-sm btn-outline-danger" name="deleteItem" data-id="{{ $category->id }}"><i class="fa fa-trash-alt"></i></button>
@@ -75,17 +80,65 @@
             let idElement = $(this).data('id');
             let token = "{{ csrf_token() }}";
 
-            console.log(idElement);
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: 'Estás borrando una categoría. Esta acción es irreversible y no podremos recuperarlo una vez borrado.',
+                icon: 'info',
+                showCancelButton: true,
+                focusCancel: true,
+                confirmButtonText: 'Sí, estoy seguro',
+                cancelButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: `Borrando...`,
+                        didOpen: () => {
+                            Swal.showLoading();
+                            $.ajax({
+                                url: '/categories/' + idElement,
+                                type: 'DELETE',
+                                data: {
+                                    _token: token,
+                                },
+                                cache: false
+                            }).done(function(respuesta) {
+                                (respuesta) ? location.reload(): console.log(respuesta);
+                            }).fail(function(xhr, status, error) {
+                                console.log('Error: ' + error + ' | Status:' + status);
+                            });
+                        }
+                    })
+                }
+            });
+        });
+
+        //Change Status: Active
+        $("[name='statusItem']").on('change', function(e) {
+            let idElement = $(this).data('id');
+            let token = "{{ csrf_token() }}";
+            let futureStatus = ($(this).is(':checked')) ? 1 : 0;
 
             $.ajax({
-                url: '/categories/' + idElement,
-                type: 'DELETE',
+                url: '{{ route("updateStatusCategory") }}',
+                type: 'POST',
                 data: {
                     _token: token,
+                    id: idElement,
+                    newStatus: futureStatus
                 },
                 cache: false
             }).done(function(respuesta) {
-                (respuesta) ? location.reload(): console.log(respuesta);
+                if (respuesta) {
+                    $.gritter.add({
+                        title: 'Estatus actualizado correctamente',
+                        time: '2000',
+                        before_open: function() {
+                            if ($('.gritter-item-wrapper').length == 2) {
+                                return false;
+                            }
+                        }
+                    });
+                }
             }).fail(function(xhr, status, error) {
                 console.log('Error: ' + error + ' | Status:' + status);
             });

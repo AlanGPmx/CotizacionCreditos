@@ -79,7 +79,7 @@ class CategoriesController extends Controller
     {
         $category = Categories::find($id);
 
-        $msg = 'La categoría "'. $category->name . '" ahora es "' . $request->name . '"';
+        $msg = 'La categoría "' . $category->name . '" ahora es "' . $request->name . '"';
 
         $category->name = $request->name;
         $category->active = ($request->active == 'on') ? true : false;
@@ -100,6 +100,20 @@ class CategoriesController extends Controller
         $itemCarousel = Categories::find($id);
         $wasDeleted = $itemCarousel->delete();
 
-        return ($wasDeleted) ? 1:0;
+        return ($wasDeleted) ? 1 : 0;
+    }
+
+    /**
+     * Update status 'Active' from resource
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function changeStatus(Request $request)
+    {
+        $user = Categories::find($request->id);
+        $user->active = $request->newStatus;
+        $wasSaved = $user->save();
+        return ($wasSaved) ? 1 : 0;
     }
 }

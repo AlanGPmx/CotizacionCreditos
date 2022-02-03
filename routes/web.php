@@ -36,6 +36,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         'update' => 'updateCategory',          
         'destroy' => 'destroyCategory',        
     ]);
+    Route::post('update-status-category', 'CategoriesController@changeStatus')->name('updateStatusCategory');
+
 
     //Para Administrar los plazos de pago
     Route::resource('deadline2pay', 'Deadlines2PayController')->names([
