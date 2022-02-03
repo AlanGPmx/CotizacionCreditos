@@ -27,6 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         'update' => 'updateProduct',          
         'destroy' => 'destroyProduct',        
     ]);
+    Route::post('update-status-product', 'ProductsController@changeStatus')->name('updateStatusProduct');
 
     //Para Administrar las categorias
     Route::resource('categories', 'CategoriesController')->names([
