@@ -14,7 +14,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categories::all();
+
+        return view('application.categories.index')->with('categories', $categories);
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('application.categories.add');
     }
 
     /**
@@ -35,7 +37,12 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Categories;
+        $category->name = $request->name;
+        $category->active = ($request->active == 'on') ? true : false;
+        $category->save();
+
+        return redirect()->back()->with('message', 'La categoria se ha añadido con éxito.')->with('type', 'alert-success')->with('icon', 'fa-check-circle');
     }
 
     /**
@@ -55,9 +62,10 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categories $categories)
+    public function edit($id)
     {
-        //
+        $category = Categories::find($id);
+        return view('application.categories.edit')->with('category', $category);
     }
 
     /**
@@ -67,9 +75,17 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categories $categories)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Categories::find($id);
+
+        $msg = 'La categoría "'. $category->name . '" ahora es "' . $request->name . '"';
+
+        $category->name = $request->name;
+        $category->active = ($request->active == 'on') ? true : false;
+        $category->save();
+
+        return redirect()->route('categories')->with('message', $msg)->with('type', 'alert-success')->with('icon', 'fa-check-circle');
     }
 
     /**
@@ -78,8 +94,14 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
-        //
+        dd($id);
+        $itemCarousel = Categories::find($id);
+        $wasDeleted = $itemCarousel->delete();
+
+        return ($wasDeleted) ?
+            redirect()->route('categories')->with('message', 'Categoría eliminada')->with('type', 'alert-success')->with('icon', 'fa-check-circle'):
+            redirect()->route('categories')->with('message', 'La categoría no se ha podido eliminar')->with('type', 'alert-danger')->with('icon', 'fa-times-circle');
     }
 }
