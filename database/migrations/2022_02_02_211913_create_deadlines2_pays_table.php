@@ -16,8 +16,8 @@ class CreateDeadlines2PaysTable extends Migration
         Schema::create('deadlines2_pays', function (Blueprint $table) {
             $table->id();
             $table->integer('number');
-            $table->float('standarRate');
-            $table->float('punctualRate');
+            $table->decimal('standarRate', 10,4);
+            $table->decimal('punctualRate', 10,4);
             $table->boolean('allow')->default(1);
             $table->timestamps();
         });
