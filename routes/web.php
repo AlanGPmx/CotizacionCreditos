@@ -18,6 +18,7 @@ Route::get('/', function () {
  */
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard/{q?}', 'WebController@index')->name('dashboard');
+    Route::post('calc-pay', 'WebController@calc')->name('calcItemPay');
 
     //Para Administrar los Productos
     Route::resource('products', 'ProductsController')->names([
