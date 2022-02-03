@@ -49,7 +49,7 @@ class ProductsController extends Controller
 
         if ($request->hasDiscount == 'on') {
             $product->typeDiscount = $request->typeDiscount;
-            $product->discount = (float) $request->discount;
+            $product->discount = (float) $request->discount / 100;
         }
 
         if ($request->has('image')) {
@@ -111,7 +111,7 @@ class ProductsController extends Controller
 
         if ($request->hasDiscount == 'on') {
             $product->typeDiscount = $request->typeDiscount;
-            $product->discount = (float) $request->discount;
+            $product->discount = (float) $request->discount / 100;
         } else {
             $product->typeDiscount = null;
             $product->discount = null;
