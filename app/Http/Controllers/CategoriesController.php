@@ -97,8 +97,8 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         //dd($id);
-        $itemCarousel = Categories::find($id);
-        $wasDeleted = $itemCarousel->delete();
+        $category = Categories::find($id);
+        $wasDeleted = $category->delete();
 
         return ($wasDeleted) ? 1 : 0;
     }
