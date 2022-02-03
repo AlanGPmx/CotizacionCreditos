@@ -18,6 +18,7 @@ class CreateDeadlines2PaysTable extends Migration
             $table->integer('number');
             $table->float('standarRate');
             $table->float('punctualRate');
+            $table->boolean('allow')->default(1);
             $table->timestamps();
         });
     }
