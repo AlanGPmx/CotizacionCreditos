@@ -108,7 +108,7 @@
 							<select class="form-select @error('typeDiscount') is-invalid @enderror" name="typeDiscount">
 								<option selected disabled value="">Elegir una opción...</option>
 								<option @if($product->typeDiscount == 1) selected @endif value="1">Porcentaje</option>
-								<option @if($product->typeDiscount == 0) selected @endif value="0">Precio</option>
+								<option @if($product->typeDiscount != 1) selected @endif value="0">Precio</option>
 							</select>
 							@error('typeDiscount')
 							<span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
 					<div class="col-md-6 mb-3" name="justIfHasDiscount" @if(is_null($product->discount)) style="display:none" @endif>
 						<div class="form-group">
 							<label for="discount">{{ ($product->typeDiscount == 1) ? 'Porcentaje':'Precio en descuento' }}</label>
-							<input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" value="{{ @if(is_null($product->typeDiscount == 1)) $product->discount*100 @else $product->discount @endif }}" autocomplete="discount">
+							<input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" value="{{ $product->discount }}" autocomplete="discount">
 							@error('discount')
 							<span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>

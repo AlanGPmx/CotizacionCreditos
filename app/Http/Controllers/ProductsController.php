@@ -48,7 +48,7 @@ class ProductsController extends Controller
         $product->description = $request->description;
 
         if ($request->hasDiscount == 'on') {
-            $product->typeDiscount = $request->typeDiscount;
+            $product->typeDiscount = ($request->typeDiscount == 1) ? $request->typeDiscount: 0;
             $product->discount = (float) $request->discount / 100;
         }
 
