@@ -113,7 +113,7 @@ class WebController extends Controller
 
 
         //El producto tiene descuento?
-        if (!is_null($prod->discount)) {
+        /* if (!is_null($prod->discount)) {
             $prod->price = ($prod->typeDiscount == 1) ? $prod->price - ($prod->price * ($prod->discount/100)) : $prod->discount;
             //Calculo
             $data['final']['price'] = $prod->price;
@@ -124,7 +124,7 @@ class WebController extends Controller
             $data['final']['price'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['price']);
             $data['final']['standarPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['standarPay']);
             $data['final']['punctualPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['punctualPay']);
-        }
+        } */
 
         return $data;
     }
