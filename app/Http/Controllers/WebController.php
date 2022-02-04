@@ -106,7 +106,7 @@ class WebController extends Controller
         $data['original']['standarPay'] = (($prod->price * $deadline2pay->standarRate) + $prod->price) / $deadline2pay->number;
         $data['original']['punctualPay'] = (($prod->price * $deadline2pay->punctualRate) + $prod->price) / $deadline2pay->number;
 
-       /* //Formato
+       //Formato
         $data['original']['price'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['price']);
         $data['original']['standarPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['standarPay']);
         $data['original']['punctualPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['punctualPay']);
@@ -124,7 +124,7 @@ class WebController extends Controller
             $data['final']['price'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['price']);
             $data['final']['standarPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['standarPay']);
             $data['final']['punctualPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['punctualPay']);
-        } */
+        }
 
         return $data;
     }
