@@ -107,23 +107,22 @@ class WebController extends Controller
         $data['original']['punctualPay'] = (($prod->price * $deadline2pay->punctualRate) + $prod->price) / $deadline2pay->number;
 
         //Formato
-        $data['original']['price'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['price']);
-        $data['original']['standarPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['standarPay']);
-        $data['original']['punctualPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['punctualPay']);
-
+        $data['original']['price'] = number_format($data['original']['price'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['price']);
+        $data['original']['standarPay'] = number_format($data['original']['standarPay'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['standarPay']);
+        $data['original']['punctualPay'] = number_format($data['original']['punctualPay'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['original']['punctualPay']);
 
         //El producto tiene descuento?
         if (!is_null($prod->discount)) {
-            $prod->price = ($prod->typeDiscount == 1) ? $prod->price - ($prod->price * ($prod->discount/100)) : $prod->discount;
+            $prod->price = ($prod->typeDiscount == 1) ? $prod->price - ($prod->price * ($prod->discount / 100)) : $prod->discount;
             //Calculo
             $data['final']['price'] = $prod->price;
             $data['final']['standarPay'] = (($prod->price * $deadline2pay->standarRate) + $prod->price) / $deadline2pay->number;
             $data['final']['punctualPay'] = (($prod->price * $deadline2pay->punctualRate) + $prod->price) / $deadline2pay->number;
 
             //Formato
-            $data['final']['price'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['price']);
-            $data['final']['standarPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['standarPay']);
-            $data['final']['punctualPay'] = NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['punctualPay']);
+            $data['final']['price'] = number_format($data['final']['price'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['price']);
+            $data['final']['standarPay'] = number_format($data['final']['standarPay'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['standarPay']);
+            $data['final']['punctualPay'] = number_format($data['final']['punctualPay'], 2);//NumberFormatter::create('es_MX', NumberFormatter::DECIMAL)->format($data['final']['punctualPay']);
         }
 
         return $data;

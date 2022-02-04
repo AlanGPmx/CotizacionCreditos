@@ -19,7 +19,7 @@ En la dirección de Canales de terceros, se requiere realizar un pequeño sistem
 * **La interacción total es en usuario con rol de administrador**
 
 # Deploy en Heroku
-[Ir a la app en Heroku](https://young-ravine-81746.herokuapp.com/)
+[Ir a la app en Heroku](http://damp-fjord-69165.herokuapp.com/)
 
 # Bonus 2
 ## Test
