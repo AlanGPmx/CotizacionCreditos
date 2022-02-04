@@ -18,6 +18,9 @@ En la dirección de Canales de terceros, se requiere realizar un pequeño sistem
 * **Se realizó el código para usar roles de usuario, pero por tiempo no se implementó**
 * **La interacción total es en usuario con rol de administrador**
 
+# Deploy en Heroku
+[Ir a la app en Heroku](https://young-ravine-81746.herokuapp.com/)
+
 # Bonus 2
 ## Test
 [Prueba - Video](https://youtu.be/k-ELqG8DQNY "Ver video de prueba")
