@@ -108,7 +108,7 @@
 							<select class="form-select @error('typeDiscount') is-invalid @enderror" name="typeDiscount">
 								<option selected disabled value="">Elegir una opción...</option>
 								<option @if($product->typeDiscount == 1) selected @endif value="1">Porcentaje</option>
-								<option @if($product->typeDiscount == 2) selected @endif value="2">Precio</option>
+								<option @if($product->typeDiscount != 1) selected @endif value="0">Precio</option>
 							</select>
 							@error('typeDiscount')
 							<span class="invalid-feedback" role="alert">
