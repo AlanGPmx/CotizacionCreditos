@@ -18,8 +18,8 @@ En la dirección de Canales de terceros, se requiere realizar un pequeño sistem
 * **Se realizó el código para usar roles de usuario, pero por tiempo no se implementó**
 * **La interacción total es en usuario con rol de administrador**
 
-## Bonus 3
-# ¿Cómo harías una función en donde multipliques dos números dados sin USAR "*" como operador?
+# Bonus 3
+## ¿Cómo harías una función en donde multipliques dos números dados sin USAR "*" como operador?
 La forma más rápida es realizando un ciclo que sume el nummero 1 tantas veces el número 2 lo indique, auqnue ineficiente, es una forma de resolver el problema.
 
 Por otro lado se implementaría una función recursiva que obtenga ambos números y se mande a llamar hasta obtener el resultado que satisfaga las condiciones implementadas, ejemplo:
@@ -36,8 +36,8 @@ def multiplicacion(a,b)
     else:
         return a + multiplicacion(a, b - 1)
 ````
-## Bonus 4
-# ¿Que son los parámetros nombrados en JavaScript y para qué sirven?
+# Bonus 4
+## ¿Que son los parámetros nombrados en JavaScript y para qué sirven?
 Son los también llamados **parámetros predeterminados** o **parámetros inicializados** de una función que harán que se inicien con valores predeterminados si no se pasa ningún valor sin que lleguen a estar undefined, asignándoles un valor por defecto; ejemplo:
 
 ````
@@ -46,8 +46,8 @@ function multiplicar(a, **b = 1**) {
 }
 ````
 
-### Bonus 5
-# ¿Qué métodos de un array en JavaScript conoces?
+# Bonus 5
+## ¿Qué métodos de un array en JavaScript conoces?
 
 * **forEach()**: Nos permite iterar el contenido, recibe un callback que toma como parámetro el elemento actual de la iteración y el indice del mismo.
 ````
