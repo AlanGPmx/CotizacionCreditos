@@ -48,8 +48,8 @@ class ProductsController extends Controller
         $product->description = $request->description;
 
         if ($request->hasDiscount == 'on') {
-            $product->typeDiscount = ($request->typeDiscount == 1) ? $request->typeDiscount: 0;
-            $product->discount = (float) $request->discount / 100;
+            $product->typeDiscount = ($request->typeDiscount == 1) ? 1: 0;
+            $product->discount = (float) $request->discount;
         }
 
         if ($request->has('image')) {
@@ -110,8 +110,8 @@ class ProductsController extends Controller
         $product->description = $request->description;
 
         if ($request->hasDiscount == 'on') {
-            $product->typeDiscount = $request->typeDiscount;
-            $product->discount = (float) $request->discount / 100;
+            $product->typeDiscount = ($request->typeDiscount == 1) ? 1: 0;
+            $product->discount = (float) $request->discount;
         } else {
             $product->typeDiscount = null;
             $product->discount = null;
