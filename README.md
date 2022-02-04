@@ -18,6 +18,10 @@ En la dirección de Canales de terceros, se requiere realizar un pequeño sistem
 * **Se realizó el código para usar roles de usuario, pero por tiempo no se implementó**
 * **La interacción total es en usuario con rol de administrador**
 
+# Bonus 2
+## Test
+[Prueba - Video](https://youtu.be/k-ELqG8DQNY "Ver video de prueba")
+
 # Bonus 3
 ## ¿Cómo harías una función en donde multipliques dos números dados sin USAR "*" como operador?
 La forma más rápida es realizando un ciclo que sume el nummero 1 tantas veces el número 2 lo indique, auqnue ineficiente, es una forma de resolver el problema.
