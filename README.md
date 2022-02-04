@@ -41,7 +41,7 @@ def multiplicacion(a,b)
 Son los también llamados **parámetros predeterminados** o **parámetros inicializados** de una función que harán que se inicien con valores predeterminados si no se pasa ningún valor sin que lleguen a estar undefined, asignándoles un valor por defecto; ejemplo:
 
 ````
-function multiplicar(a, **b = 1**) {
+function multiplicar(a, b = 1) {
   return a * b;
 }
 ````
@@ -117,14 +117,14 @@ console.log(ascArray) // ('c', 'd', 'd', "e', 'g', v']
 ````
 const arravl = ['a', 'b', 'c']
 const arrav2 = ['d', 'e', 'f']
-const resultArray = arrayl.concat (array2)
-console. log(resultArrav) // ['a', 'b', 'c', 'd', 'e', 'f']
+const resultArray = arrayl.concat(array2)
+console.log(resultArrav) // ['a', 'b', 'c', 'd', 'e', 'f']
 ````
 
 * **indexOf()**: Retorna el primer índice en el que se puede encontrar un elemento dado en el array, ó retorna -1 si el elemento no se encontró.
 ````
-const array = ['alan', "roberto', 'luis']
-const resultArray = array.indexOf( 'roberto')
+const array = ['alan', 'roberto', 'luis']
+const resultArray = array.indexOf('roberto')
 console.Log(resultArray)        //2
 ````
 
