@@ -19,7 +19,7 @@ class WebController extends Controller
     public function index(Request $request)
     {
         if ($request->has('q')) {
-            $results = Products::where('sku', $request->q)->orWhere(DB::raw('lower(name)'), 'like', '%' . strtolower($request->q) . '%')->get();
+            $results = Products::where('sku', $request->q)->orWhere(DB::raw('lower(name)'), 'like', '%' . strtolower($request->q) . '%')->where('active', 1)->get();
             $weeks = Deadlines2Pay::where('allow', 1)->get();
             return view('dashboard')->with('results', $results)->with('weeks', $weeks);
         } else {
