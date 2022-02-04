@@ -114,7 +114,7 @@ class WebController extends Controller
 
         //El producto tiene descuento?
         if (!is_null($prod->discount)) {
-            $prod->price = ($prod->typeDiscount == 1) ? $prod->price - ($prod->price * ($prod->discount*100)) : $prod->discount;
+            $prod->price = ($prod->typeDiscount == 1) ? $prod->price - ($prod->price * ($prod->discount/100)) : $prod->discount;
             //Calculo
             $data['final']['price'] = $prod->price;
             $data['final']['standarPay'] = (($prod->price * $deadline2pay->standarRate) + $prod->price) / $deadline2pay->number;
